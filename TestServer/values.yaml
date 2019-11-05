@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: hassanhashemi/test-server
+  repository: test-server
   tag: 1.8
   pullPolicy: IfNotPresent
 
@@ -17,7 +17,7 @@ service:
   type: NodePort
   port: 80
   nodePort: 30001
-  sslPort: 30002
+  sslNodePort: 30002
 
 ingress:
   enabled: false
@@ -33,6 +33,9 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+env:
+   NAME: first
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

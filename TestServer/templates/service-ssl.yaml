@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "testserver.fullname" . }}
+  name: {{ include "testserver.fullname" . }}-ssl 
   labels:
 {{ include "testserver.labels" . | indent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 443
       targetPort: http
-      nodePort: {{ .Values.service.nodePort }}
+      nodePort: {{ .Values.service.sslNodePort }}
       protocol: TCP
       name: http
   selector:

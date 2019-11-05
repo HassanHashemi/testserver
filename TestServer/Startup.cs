@@ -16,11 +16,14 @@ namespace TestServer
         {
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment _)
         {
             app.Run(async context =>
             {
-                var message = $"{context.Request.Scheme} - {context.Request.Host} - {context.Request.Path}";
+                var message = Environment.GetEnvironmentVariable("NAME");
+
+                message += $"scheme: {context.Request.Scheme} - host: {context.Request.Host} - path: {context.Request.Path}";
+                message += Environment.NewLine;
 
                 foreach(var header in context.Request.Headers)
                 {
