@@ -29,8 +29,8 @@ ingress:
     - host: test1.satrapstage.com
       paths: ["/"]
 
-  tls: []
-  #  - secretName: chart-example-tls
+  tls: 
+    - secretName: stage-cert
   #    hosts:
   #      - chart-example.local
 
