@@ -20,7 +20,7 @@ namespace TestServer
         {
             app.Run(async context =>
             {
-                var message = Environment.GetEnvironmentVariable("NAME");
+                var message = $"{Environment.GetEnvironmentVariable("NAME")} {Environment.NewLine}";
 
                 message += $"scheme: {context.Request.Scheme} - host: {context.Request.Host} - path: {context.Request.Path}";
                 message += Environment.NewLine;
